@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramazan ve Oruç İbadeti - Bulmaca Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars" id="starsContainer"></div>
+    <div class="moon"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="content">
+            <!-- Ana Sayfa - Etap Seçimi -->
+            <div id="mainPage">
+                <div class="header">
+                    <h1>Ramazan ve Oruç İbadeti</h1>
+                    <p>Bulmaca Oyunu</p>
+                    <p class="subtitle">İstediğin etabı seç ve oynamaya başla!</p>
+                </div>
+
+                <div class="stage-grid">
+                    <div class="stage-card" onclick="goToStage('etap1')">
+                        <div class="stage-icon">🧠</div>
+                        <h2>Etap 1</h2>
+                        <h3>Kavramları Öğren</h3>
+                        <p class="subtitle-text">Memory Match (Hafıza Eşleştirme)</p>
+                        <p>12 kavram ve tanımını eşleştirerek öğren</p>
+                        <button class="btn btn-primary">Başla</button>
+                    </div>
+
+                    <div class="stage-card" onclick="goToStage('etap2')">
+                        <div class="stage-icon">🔗</div>
+                        <h2>Etap 2</h2>
+                        <h3>Kavram-Tanım Bulmacası</h3>
+                        <p class="subtitle-text">Eşleştirme Oyunu</p>
+                        <p>7 kavramı doğru tanımlarıyla eşleştir</p>
+                        <button class="btn btn-primary">Başla</button>
+                    </div>
+
+                    <div class="stage-card" onclick="goToStage('etap3')">
+                        <div class="stage-icon">❓</div>
+                        <h2>Etap 3</h2>
+                        <h3>Genişletilmiş Quiz</h3>
+                        <p class="subtitle-text">12 Soruluk Test</p>
+                        <p>Bilgini 12 soruluk quizle test et</p>
+                        <button class="btn btn-primary">Başla</button>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    6. Sınıf Din Kültürü ve Ahlak Bilgisi Dersi
+                </div>
+            </div>
+
+            <!-- Etap 1: Memory Match -->
+            <div id="etap1Page" class="hidden">
+                <div class="header">
+                    <h1>Etap 1: Kavramları Öğren</h1>
+                    <p>Memory Match (Hafıza Eşleştirme)</p>
+                    <p class="subtitle">İki kartı açarak kavram ve tanımları eşleştir!</p>
+                </div>
+
+                <div id="etap1Message"></div>
+                <div class="memory-grid" id="memoryGrid"></div>
+
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="resetMemoryGame()">
+                        🔄 Yeniden Başla
+                    </button>
+                    <button class="btn btn-outline" onclick="goToMain()">
+                        🏠 Etap Seçe Dön
+                    </button>
+                </div>
+            </div>
+
+            <!-- Etap 2: Kavram-Tanım Bulmacası -->
+            <div id="etap2Page" class="hidden">
+                <div class="header">
+                    <h1>Etap 2: Kavram-Tanım Bulmacası</h1>
+                    <p>Eşleştirme Oyunu</p>
+                    <p class="subtitle">Sol taraftaki kavramları sağ taraftaki tanımlarla eşleştir!</p>
+                </div>
+
+                <div id="etap2Message"></div>
+                <div class="progress-text" id="matchingProgress">İlerleme: 0 / 7</div>
+
+                <div class="matching-container">
+                    <div class="matching-column">
+                        <h3>Kavramlar</h3>
+                        <div id="termsColumn"></div>
+                    </div>
+                    <div class="matching-column">
+                        <h3>Tanımlar</h3>
+                        <div id="definitionsColumn"></div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="resetMatchingGame()">
+                        Yeniden Başla
+                    </button>
+                    <button class="btn btn-outline" onclick="goToMain()">
+                        🏠 Etap Seçe Dön
+                    </button>
+                </div>
+            </div>
+
+            <!-- Etap 3: Quiz -->
+            <div id="etap3Page" class="hidden">
+                <div class="header">
+                    <h1>Etap 3: Genişletilmiş Quiz</h1>
+                    <p>12 Soruluk Test</p>
+                    <p class="subtitle" id="quizProgress">Soru 1 / 12</p>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 8.33%"></div>
+                    </div>
+
+                    <div id="quizContent"></div>
+                    <div id="quizResult" class="hidden"></div>
+
+                    <div class="controls" id="quizControls"></div>
+
+                    <div class="score-display" id="scoreDisplay">Mevcut Puan: 0 / 0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
